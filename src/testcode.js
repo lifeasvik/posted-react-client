@@ -22,12 +22,7 @@ function App() {
   // Can i also write it like this? import React, {useState} from 'react';
   //const [userInput, setUserInput] = useState('')??
 
-  //am i doing multiple inputs wrong should i set 2 const
-  let nam = event.target.name;
-  let val = event.target.value;
-  this.setState({ [nam]: val });
-
-  const [userInput, setUserInput] = useState("");
+  const [loginInput, passwordInput] = useState("");
 
   return (
     <main className="App">
@@ -40,7 +35,7 @@ function App() {
         <h4>Login:</h4>
         <input
           type="text"
-          name="logininput"
+          name="loginInput"
           required
           onChange={this.loginHandler}
           value={this.state.loginhandler}
