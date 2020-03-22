@@ -1,23 +1,5 @@
-
-<Link to='/game'> Start Game </Link>
-
-<Switch> <Route exact path={'/'} component={LoginPage} /> <Route path={'/loggedin'} component={LoggedIn} /> <Route path={'/register'} component={RegistrationPage} /> <Route path={'/game'} component={Game} /> <Route path={'/leaderboard'} component={LeaderBoard} /> </Switch>
-
-import { Route, Switch } from 'react-router-dom'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default class App extends React.Component {
   state = {
@@ -66,12 +48,13 @@ export default class App extends React.Component {
             />
           </div>
           <div>
-            <input
+            {/* <input
               type="button"
               name="submitlogin"
+              value="Button"
               onClick={() => this.handleButtonClick()}
-            />
-            Submit
+            /> */}
+            <Link to="/postcard">Submit</Link>
           </div>
         </form>
         {/* End submit form code */}

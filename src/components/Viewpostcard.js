@@ -1,15 +1,17 @@
-import React from "react";
-import "./styles.css";
+import React, { Component } from "react";
+// import "./styles.css";
 
-export default class App extends React.Component {
-  state = {
-    postcardText: "",
-    image: ""
-  };
+export default class Viewpostcard extends Component {
+  // state = {
+  //   postcardText: "this.state",
+  //   image: ""
+  // };
+  // static contextType = AppContext;
 
   handleSubmit = e => {
     e.preventDefault();
   };
+
   render() {
     return (
       <div className="App">
