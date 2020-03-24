@@ -1,21 +1,28 @@
 import React from "react";
-// import "./styles.css";
+import "../styles.css";
+import { Link } from "react-router-dom";
+import AppContext from "./Context";
 
 export default class Createpostcard extends React.Component {
+  static contextType = AppContext;
   state = {
     postcardText: "",
-    image: ""
+    image: "",
+    finishedpostcard: ""
   };
 
   handleSubmit = e => {
     e.preventDefault();
+    this.context.addPostcard(this.state.image, this.state.postcardText);
+    this.props.history.push("/viewpostcard");
   };
+
   render() {
     return (
-      <div className="App">
+      <div className="postpage">
         <h1>Posted</h1>
         <form onSubmit={this.handleSubmit}>
-          <p>
+          <div>
             <input
               type="text"
               name="postcard-text"
@@ -23,8 +30,8 @@ export default class Createpostcard extends React.Component {
               value={this.state.postcardText}
               onChange={e => this.setState({ postcardText: e.target.value })}
             />
-          </p>
-          <p>
+          </div>
+          <div>
             <input
               type="text"
               name="image-url"
@@ -32,19 +39,24 @@ export default class Createpostcard extends React.Component {
               value={this.state.image}
               onChange={e => this.setState({ image: e.target.value })}
             />
-          </p>
-          <p>
+          </div>
+          <div className="contentliner">
             <input type="submit" />
-          </p>
+          </div>
         </form>
-        <div
-          className="postcard"
-          style={{
-            backgroundImage: `url(${this.state.image})`
-          }}
-        >
-          <p class="postcardText">{this.state.postcardText}</p>
+
+        {/* Code for Viewing Postcard */}
+        <div className="cardholder">
+          <div
+            className="postcard"
+            style={{
+              backgroundImage: `url(${this.state.image})`
+            }}
+          >
+            <p className="postcardText">{this.state.postcardText}</p>
+          </div>
         </div>
+        {/* End Code for Viewing Postcard */}
       </div>
     );
   }

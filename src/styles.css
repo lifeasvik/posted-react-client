@@ -1,0 +1,79 @@
+/* * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.contentliner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Splash Page CSS Here */
+
+.splashcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+}
+
+.signinsplash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  padding: 20px;
+}
+
+/* Create Postcard Page CSS Here */
+
+.cardholder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.postcard {
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+}
+
+/* View Postcard Page CSS Here */
+
+.viewpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.finishedpost {
+  padding: 20px;
+}
+
+/* Signup Page CSS Here */
+
+.signupbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

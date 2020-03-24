@@ -1,7 +1,10 @@
 import React from "react";
+import "../styles.css";
 import { Link } from "react-router-dom";
+import AppContext from "./Context";
 
 export default class App extends React.Component {
+  static contextType = AppContext;
   state = {
     login: "",
     password: ""
@@ -22,45 +25,64 @@ export default class App extends React.Component {
   render() {
     return (
       <main className="App">
-        <div>
+        <div className="contentliner">
           <h1>Welcome to Posted</h1>
         </div>
-        <div>Sign in</div>
-
         {/* form starts here to login */}
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <h4>Login:</h4>
-            <input
-              type="text"
-              name="loginInput"
-              required
-              onChange={this.loginHandler}
-              value={this.state.login}
-            />
-            <h4>Password:</h4>
-            <input
-              type="password"
-              name="passwordInput"
-              required
-              onChange={this.passwordHandler}
-              value={this.state.password}
-            />
+        <div className="splashcontainer">
+          <div className="contentliner">Sign in</div>
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              <div className="contentliner">
+                <h4>Login:</h4>
+              </div>
+              <input
+                type="text"
+                name="loginInput"
+                required
+                onChange={this.loginHandler}
+                value={this.state.login}
+              />
+              <div className="contentliner">
+                <h4>Password:</h4>
+              </div>
+              <input
+                type="password"
+                name="passwordInput"
+                required
+                onChange={this.passwordHandler}
+                value={this.state.password}
+              />
+            </div>
+            <div className="contentliner">
+              {/* <input
+                type="button"
+                name="submitlogin"
+                value="Button"
+                onClick={() => this.handleButtonClick()}
+              /> */}
+              <Link to="/postcard">Submit</Link>
+            </div>
+          </form>
+          {/* End submit form code */}
+          <div className="signinsplash">
+            <Link to="/signup">Signup</Link>
           </div>
-          <div>
-            {/* <input
-              type="button"
-              name="submitlogin"
-              value="Button"
-              onClick={() => this.handleButtonClick()}
-            /> */}
-            <Link to="/postcard">Submit</Link>
-          </div>
-        </form>
-        {/* End submit form code */}
-
-        <div>
+        </div>
+        <div className="contentliner">
           <h1>Latest Postcards:</h1>
+        </div>
+        <div className="cardholder">
+          {this.context.postcards.map(postcard => (
+            <div
+              className="postcard"
+              style={{
+                backgroundImage: `url(${postcard.image})`
+              }}
+            >
+              <p className="postcardText">{postcard.text}</p>
+            </div>
+          ))}
         </div>
       </main>
     );
