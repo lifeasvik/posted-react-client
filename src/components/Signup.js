@@ -2,16 +2,45 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../styles.css";
 
+import AuthApiService from "../services/auth-api-service";
+import TokenService from "../services/token-service";
+
 export default class Viewpostcard extends Component {
   state = {
     username: "",
     password: "",
-    verifypass: ""
+    error: null,
   };
-  // static contextType = AppContext;
 
-  handleSubmit = e => {
-    e.preventDefault();
+  static defaultProps = {
+    onRegistrationSuccess: () => {},
+  };
+
+  //add info here from thingful
+  handleSubmit = (ev) => {
+    ev.preventDefault();
+    const { user_name, password, verifypass } = ev.target;
+
+    if (password.value != verifypass.value) {
+      this.setState({
+        error: "Your password was not verified try again.",
+      });
+      return;
+    }
+
+    this.setState({ error: null });
+    AuthApiService.postUser({
+      user_name: user_name.value,
+      password: password.value,
+    })
+      .then((user) => {
+        user_name.value = "";
+        password.value = "";
+        this.props.history.push("/postcard");
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
   };
 
   render() {
@@ -20,35 +49,26 @@ export default class Viewpostcard extends Component {
         <div>
           <h4>Sign Up for an account</h4>
         </div>
+
+        {this.state.error}
+
         <form onSubmit={this.handleSubmit}>
           <div>
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={this.state.username}
-              onChange={e => this.setState({ username: e.target.value })}
-            />
+            <input type="text" name="user_name" placeholder="Username" />
           </div>
           <div>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={e => this.setState({ password: e.target.value })}
-            />
+            <input type="password" name="password" placeholder="Password" />
           </div>
           <div>
             <input
               type="verifypass"
               name="verifypass"
               placeholder="Retype Password"
-              value={this.state.verifypass}
-              onChange={e => this.setState({ verifypass: e.target.value })}
             />
           </div>
-          <Link to="/">Submit</Link>
+          <button name="submitlogin" value="Button">
+            Submit
+          </button>
         </form>
       </div>
     );

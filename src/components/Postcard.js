@@ -1,24 +1,26 @@
 import React from "react";
 import "../styles.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import AppContext from "./Context";
+import TokenService from "../services/token-service";
+import { Redirect } from "react-router-dom";
 
 export default class Createpostcard extends React.Component {
   static contextType = AppContext;
   state = {
     postcardText: "",
     image: "",
-    finishedpostcard: ""
+    finishedpostcard: "",
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.context.addPostcard(this.state.image, this.state.postcardText);
     this.props.history.push("/viewpostcard");
   };
 
   render() {
-    return (
+    return TokenService.getAuthToken() ? (
       <div className="postpage">
         <h1>Posted</h1>
         <form onSubmit={this.handleSubmit}>
@@ -28,7 +30,7 @@ export default class Createpostcard extends React.Component {
               name="postcard-text"
               placeholder="Postcard Text"
               value={this.state.postcardText}
-              onChange={e => this.setState({ postcardText: e.target.value })}
+              onChange={(e) => this.setState({ postcardText: e.target.value })}
             />
           </div>
           <div>
@@ -37,7 +39,7 @@ export default class Createpostcard extends React.Component {
               name="image-url"
               placeholder="Image URL"
               value={this.state.image}
-              onChange={e => this.setState({ image: e.target.value })}
+              onChange={(e) => this.setState({ image: e.target.value })}
             />
           </div>
           <div className="contentliner">
@@ -50,7 +52,7 @@ export default class Createpostcard extends React.Component {
           <div
             className="postcard"
             style={{
-              backgroundImage: `url(${this.state.image})`
+              backgroundImage: `url(${this.state.image})`,
             }}
           >
             <p className="postcardText">{this.state.postcardText}</p>
@@ -58,6 +60,8 @@ export default class Createpostcard extends React.Component {
         </div>
         {/* End Code for Viewing Postcard */}
       </div>
+    ) : (
+      <Redirect to="/" />
     );
   }
 }
