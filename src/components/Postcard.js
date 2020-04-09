@@ -4,6 +4,7 @@ import "../styles.css";
 import AppContext from "./Context";
 import TokenService from "../services/token-service";
 import { Redirect } from "react-router-dom";
+import PostedApiService from "../services/postedapiservice";
 
 export default class Createpostcard extends React.Component {
   static contextType = AppContext;
@@ -14,9 +15,28 @@ export default class Createpostcard extends React.Component {
   };
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    this.context.addPostcard(this.state.image, this.state.postcardText);
-    this.props.history.push("/viewpostcard");
+    // this.context.addPostcard(this.state.image, this.state.postcardText);
+    // this.props.history.push("/viewpostcard");
+
+    ev.preventDefault();
+    this.setState({ error: null });
+    const { postcard_text, image_url } = ev.target;
+
+    postedapiservice
+      .postCard({
+        postcard_text: postcard_text.value,
+        image_url: image_url.value,
+      })
+      .then((res) => {
+        postcard_text.value = "";
+        image_url.value = "";
+        this.props.history.push("/postcard");
+      })
+      .catch((res) => {
+        this.setState({
+          error: res.error,
+        });
+      });
   };
 
   render() {
@@ -27,7 +47,7 @@ export default class Createpostcard extends React.Component {
           <div>
             <input
               type="text"
-              name="postcard-text"
+              name="postcard_text"
               placeholder="Postcard Text"
               value={this.state.postcardText}
               onChange={(e) => this.setState({ postcardText: e.target.value })}
@@ -36,7 +56,7 @@ export default class Createpostcard extends React.Component {
           <div>
             <input
               type="text"
-              name="image-url"
+              name="image_url"
               placeholder="Image URL"
               value={this.state.image}
               onChange={(e) => this.setState({ image: e.target.value })}
