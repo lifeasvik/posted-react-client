@@ -1,8 +1,8 @@
 import TokenService from "./token-service";
 import config from "../config";
 
-const PostedApiService = {
-  postCard(postedId, text) {
+const postedapiservice = {
+  postCard(content, title) {
     return fetch(`${config.API_ENDPOINT}/postcards`, {
       method: "POST",
       headers: {
@@ -10,8 +10,8 @@ const PostedApiService = {
         authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        posted_id: postedId,
-        text,
+        title,
+        content,
       }),
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
@@ -45,4 +45,4 @@ const PostedApiService = {
   // },
 };
 
-export default PostedApiService;
+export default postedapiservice;

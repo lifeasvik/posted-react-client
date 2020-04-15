@@ -4,7 +4,7 @@ import "../styles.css";
 import AppContext from "./Context";
 import TokenService from "../services/token-service";
 import { Redirect } from "react-router-dom";
-import PostedApiService from "../services/postedapiservice";
+import postedapiservice from "../services/postedapiservice";
 
 export default class Createpostcard extends React.Component {
   static contextType = AppContext;
@@ -14,7 +14,7 @@ export default class Createpostcard extends React.Component {
     finishedpostcard: "",
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = (ev) => {
     // this.context.addPostcard(this.state.image, this.state.postcardText);
     // this.props.history.push("/viewpostcard");
 
@@ -23,14 +23,9 @@ export default class Createpostcard extends React.Component {
     const { postcard_text, image_url } = ev.target;
 
     postedapiservice
-      .postCard({
-        postcard_text: postcard_text.value,
-        image_url: image_url.value,
-      })
+      .postCard(image_url.value, postcard_text.value)
       .then((res) => {
-        postcard_text.value = "";
-        image_url.value = "";
-        this.props.history.push("/postcard");
+        this.props.history.push("/Viewpostcard");
       })
       .catch((res) => {
         this.setState({

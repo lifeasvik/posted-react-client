@@ -6,6 +6,10 @@ import AppContext from "./Context";
 export default class Viewpostcard extends Component {
   static contextType = AppContext;
 
+  componentDidMount() {
+    this.context.getStore();
+  }
+
   render() {
     return (
       <div className="viewpage">
@@ -16,14 +20,14 @@ export default class Viewpostcard extends Component {
           <Link to="/postcard">Create Another</Link>
         </div>
         <div className="cardholder">
-          {this.context.postcards.map(postcard => (
+          {this.context.postcards.map((postcard) => (
             <div
               className="postcard"
               style={{
-                backgroundImage: `url(${postcard.image})`
+                backgroundImage: `url(${postcard.content})`,
               }}
             >
-              <p className="postcardText">{postcard.text}</p>
+              <p className="postcardText">{postcard.title}</p>
             </div>
           ))}
         </div>

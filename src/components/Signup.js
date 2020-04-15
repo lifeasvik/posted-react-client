@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "../styles.css";
-
 import AuthApiService from "../services/auth-api-service";
-import TokenService from "../services/token-service";
 
 export default class Viewpostcard extends Component {
   state = {
@@ -21,7 +18,7 @@ export default class Viewpostcard extends Component {
     ev.preventDefault();
     const { user_name, password, verifypass } = ev.target;
 
-    if (password.value != verifypass.value) {
+    if (password.value !== verifypass.value) {
       this.setState({
         error: "Your password was not verified try again.",
       });
