@@ -108,10 +108,10 @@ export default class App extends React.Component {
             <Link to="/signup">Signup</Link>
           </div>
         </div>
-        <div className="contentliner">
+        {/* <div className="contentliner">
           <h1>Latest Postcards:</h1>
-        </div>
-        <div className="cardholder">
+        </div> */}
+        {/* <div className="cardholder">
           {this.context.postcards.map((postcard, i) => (
             <div
               key={i}
@@ -123,7 +123,7 @@ export default class App extends React.Component {
               <p className="postcardText">{postcard.text}</p>
             </div>
           ))}
-        </div>
+        </div> */}
       </main>
     );
   }

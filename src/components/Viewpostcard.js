@@ -7,7 +7,7 @@ export default class Viewpostcard extends Component {
   static contextType = AppContext;
 
   componentDidMount() {
-    this.context.getStore();
+    // this.context.getStore();
   }
 
   render() {
@@ -19,7 +19,7 @@ export default class Viewpostcard extends Component {
           <Link to="/">Home</Link>
           <Link to="/postcard">Create Another</Link>
         </div>
-        <div className="cardholder">
+        {/* <div className="cardholder">
           {this.context.postcards.map((postcard) => (
             <div
               className="postcard"
@@ -30,7 +30,7 @@ export default class Viewpostcard extends Component {
               <p className="postcardText">{postcard.title}</p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     );
   }
