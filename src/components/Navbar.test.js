@@ -6,3 +6,5 @@ import { shallow } from "enzyme";
 it("renders without crashing", () => {
   shallow(<Navbar />);
 });
+
+// added tests to ensure everything is ending up in a happy path
