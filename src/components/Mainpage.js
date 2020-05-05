@@ -65,6 +65,7 @@ export default class App extends React.Component {
   };
 
   render() {
+    const { postcards = [] } = this.context;
     return (
       <main className="App">
         <div className="contentliner">
@@ -108,12 +109,11 @@ export default class App extends React.Component {
             <Link to="/signup">Signup</Link>
           </div>
         </div>
-        <div className="contentliner">
+        {/* <div className="contentliner">
           <h1>Latest Postcards:</h1>
-        </div>{" "}
-        */}
+        </div> */}
         <div className="cardholder">
-          {this.context.postcards.map((postcard, i) => (
+          {postcards.map((postcard, i) => (
             <div
               key={i}
               className="postcard"

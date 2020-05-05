@@ -58,7 +58,7 @@ export default class Viewpostcard extends Component {
           </div>
           <div>
             <input
-              type="verifypass"
+              type="password"
               name="verifypass"
               placeholder="Retype Password"
             />

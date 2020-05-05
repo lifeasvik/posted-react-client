@@ -1,9 +1,9 @@
 import React from "react";
 
-state = {
-  postcards: "",
+export default React.createContext({
+  postcards: [],
   text: "",
   image: "",
-};
-
-export default React.createContext();
+  content: "",
+  title: "",
+});
