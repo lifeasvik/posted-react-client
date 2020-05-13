@@ -15,9 +15,6 @@ export default class Createpostcard extends React.Component {
   };
 
   handleSubmit = (ev) => {
-    // this.context.addPostcard(this.state.image, this.state.postcardText);
-    // this.props.history.push("/viewpostcard");
-
     ev.preventDefault();
     this.setState({ error: null });
     const { postcard_text, image_url } = ev.target;
@@ -25,7 +22,8 @@ export default class Createpostcard extends React.Component {
     postedapiservice
       .postCard(image_url.value, postcard_text.value)
       .then((res) => {
-        this.props.history.push("/Viewpostcard");
+        this.context.addPostcard(this.state.image, this.state.postcardText);
+        this.props.history.push("/viewpostcard");
       })
       .catch((res) => {
         this.setState({

@@ -45,34 +45,6 @@ export default class App extends React.Component {
       .catch((err) => console.log(`Oops: ${err}`));
   };
 
-  // addPostcard = (event, callback) => {
-  //   event.preventDefault();
-  //   const url = `${config.API_ENDPOINT}/postcards`;
-
-  //   fetch(url, {
-  //     method: "POST",
-  //     headers: { "content-type": "application/json" },
-  //     body: JSON.stringify({
-  //       name: event.target.name.value, //change
-  //       folder: event.target.folderId.value, //change
-  //       // modified: moment().format(),
-  //       content: event.target.content.value,
-  //     }),
-  //   })
-  //     .then((res) => {
-  //       if (!res.ok) {
-  //         throw Error(res.ok);
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((res) => {
-  //       this.updateState([...this.state.postcards, res], "postcards"); //change
-  //       callback();
-  //       return res;
-  //     })
-  //     .catch((err) => console.log(`Oops: ${err}`));
-  // };
-
   componentDidMount() {
     this.getStore();
   }

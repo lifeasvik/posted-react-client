@@ -109,19 +109,21 @@ export default class App extends React.Component {
             <Link to="/signup">Signup</Link>
           </div>
         </div>
-        {/* <div className="contentliner">
-          <h1>Latest Postcards:</h1>
-        </div> */}
+        {
+          <div className="contentliner">
+            <h1>Latest Postcards:</h1>
+          </div>
+        }
         <div className="cardholder">
           {postcards.map((postcard, i) => (
             <div
               key={i}
               className="postcard"
               style={{
-                backgroundImage: `url(${postcard.image})`,
+                backgroundImage: `url(${postcard.content})`,
               }}
             >
-              <p className="postcardText">{postcard.text}</p>
+              <p className="postcardText">{postcard.title}</p>
             </div>
           ))}
         </div>
