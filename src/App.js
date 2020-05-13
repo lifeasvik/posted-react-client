@@ -18,8 +18,8 @@ import config from "./config";
 export default class App extends React.Component {
   state = {
     postcards: [],
-    addPostcard: (image, text) => {
-      const postcard = { image, text };
+    addPostcard: (content, title) => {
+      const postcard = { content, title };
       this.setState({ postcards: [...this.state.postcards, postcard] });
     },
   };
