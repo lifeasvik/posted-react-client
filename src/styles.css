@@ -11,6 +11,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: darkcyan;
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: rgb(115, 93, 243);
 }
 
 code {
@@ -18,20 +28,48 @@ code {
     monospace;
 }
 
+.app {
+  width: 300px;
+}
+
 .contentliner {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 /* Main Splash Page CSS Here */
+
+.contentliner p {
+  padding: 20px;
+}
+
+.contentliner input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.contentliner button {
+  background-color: #b9a3d3;
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.welcome h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
 
 .splashcontainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90vw;
 }
 
 .signinsplash {

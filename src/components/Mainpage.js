@@ -67,54 +67,61 @@ export default class App extends React.Component {
   render() {
     const { postcards = [] } = this.context;
     return (
-      <main className="App">
+      <main className="contentliner">
         <div className="contentliner">
           <h1>Welcome to Posted</h1>
         </div>
-        {/* form starts here to login */}
-        <div className="splashcontainer">
-          <div className="contentliner">Sign in</div>
 
-          <form onSubmit={this.handleSubmitJwtAuth}>
-            <div>
-              <div className="contentliner">
-                <h4>Login:</h4>
-              </div>
-              <input
-                type="text"
-                name="user_name"
-                required
-                onChange={this.loginHandler}
-                value={this.state.login}
-              />
-              <div className="contentliner">
-                <h4>Password:</h4>
-              </div>
-              <input
-                type="password"
-                name="password"
-                required
-                onChange={this.passwordHandler}
-                value={this.state.password}
-              />
-            </div>
-            <div className="contentliner">
-              <button name="submitlogin" value="Button">
-                Submit
-              </button>
-            </div>
-          </form>
-          {/* End submit form code */}
-          <div className="signinsplash">
-            <Link to="/signup">Signup</Link>
-          </div>
+        <div>
+          <h1>LOGIN</h1>
         </div>
-        {
+        <form onSubmit={this.handleSubmitJwtAuth}>
+          <div className="contentliner">USER ID</div>
           <div className="contentliner">
-            <h1>Latest Postcards:</h1>
+            <input
+              type="text"
+              name="user_name"
+              required
+              onChange={this.loginHandler}
+              value={this.state.login}
+            />
           </div>
-        }
-        <div className="cardholder">
+          <div className="contentliner">PASSWORD:</div>
+          <div className="contentliner">
+            <input
+              type="password"
+              name="password"
+              required
+              onChange={this.passwordHandler}
+              value={this.state.password}
+            />
+          </div>
+          <div className="contentliner">
+            <button name="submitlogin" value="Button">
+              SUBMIT
+            </button>
+          </div>
+
+          <div className="contentliner">
+            <p>
+              Write some text, choose an image from the web and create your own
+              postcard. Posted is your place where you can create a digital
+              postcard to share with your friends
+            </p>
+          </div>
+
+          <div className="contentliner">
+            <h3>No Account?</h3>
+            <h1>
+              <Link to="/signup">SIGN UP</Link>
+            </h1>
+          </div>
+        </form>
+        <div>
+          <h1>Latest Postcards:</h1>
+        </div>
+
+        <div>
           {postcards.map((postcard, i) => (
             <div
               key={i}
