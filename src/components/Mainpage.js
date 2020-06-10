@@ -68,10 +68,10 @@ export default class App extends React.Component {
     const { postcards = [] } = this.context;
     return (
       <main className="contentliner">
-        <div className="contentliner">
-          <h1>Welcome to Posted</h1>
+        <div className="title">
+          <h1>posted</h1>
         </div>
-
+        <div className="slogan">create your digital postcard</div>
         <div>
           <h1>LOGIN</h1>
         </div>
@@ -98,7 +98,7 @@ export default class App extends React.Component {
           </div>
           <div className="contentliner">
             <button name="submitlogin" value="Button">
-              SUBMIT
+              <h3>SUBMIT</h3>
             </button>
           </div>
 

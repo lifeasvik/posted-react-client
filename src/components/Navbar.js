@@ -1,18 +1,23 @@
 import React from "react";
 import TokenService from "../services/token-service";
 import { Link } from "react-router-dom";
+import "../styles.css";
 
 export default function Navbar(props) {
   return (
-    <nav>
+    <nav className="navbarstyle">
       <ul>
         {!TokenService.getAuthToken() ? (
           <>
             <li>
-              <Link to="/">Login</Link>
+              <Link to="/">
+                <h4>login</h4>
+              </Link>
             </li>
             <li>
-              <Link to="/signup">Signup</Link>
+              <Link to="/signup">
+                <h4>signup</h4>
+              </Link>
             </li>
           </>
         ) : (

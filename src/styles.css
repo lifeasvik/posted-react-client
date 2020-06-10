@@ -1,7 +1,11 @@
 /* * {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+HEX: #a2b9bc
+
+HEX: #b2ad7f
+
+HEX: #878f99
+
+HEX: #6b5b95
 } */
 
 body {
@@ -9,14 +13,23 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  font-family: "Titillium Web", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: darkcyan;
+  background-color: #6b5b95;
   color: white;
 }
 
+P {
+  text-align: center;
+}
+
 a {
-  color: white;
+  color: #a2b9bc;
+}
+
+button {
+  color: #a2b9bc;
 }
 
 a:hover {
@@ -39,10 +52,29 @@ code {
   flex-direction: column;
 }
 
+/* Navbar Styles Here */
+.navbarstyle {
+  width: 90vw;
+}
+
+.navbarstyle a:hover {
+  color: #b2ad7f;
+}
+
+.navbarstyle ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  font: outline;
+  font-family: "Cabin", sans-serif;
+}
+
 /* Main Splash Page CSS Here */
 
 .contentliner p {
-  padding: 20px;
+  padding-top: 20px;
 }
 
 .contentliner input {
@@ -59,6 +91,19 @@ code {
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+.title {
+  font-family: "Cabin", sans-serif;
+  font-size: 40px;
+  color: #b2ad7f;
+}
+
+.slogan {
+  font-family: "Cabin", sans-serif;
+  font-size: 20px;
+  color: #878f99;
+  padding-bottom: 30px;
 }
 
 .welcome h1 {
@@ -114,4 +159,9 @@ code {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+/* Navbar Styling Here */
+.navbar ul {
+  list-style: none;
 }
