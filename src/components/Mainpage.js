@@ -75,6 +75,11 @@ export default class App extends React.Component {
         <div>
           <h1>LOGIN</h1>
         </div>
+        {/* Demo login username and password for testing purposes only */}
+        <div className="demologin">
+          We recommend you experience this web app with the following login
+          credentials: - Username: Demo1 - Password: Password123!
+        </div>
         <form onSubmit={this.handleSubmitJwtAuth}>
           <div className="contentliner">USER ID</div>
           <div className="contentliner">

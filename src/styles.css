@@ -1,13 +1,3 @@
-/* * {
-HEX: #a2b9bc
-
-HEX: #b2ad7f
-
-HEX: #878f99
-
-HEX: #6b5b95
-} */
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -127,12 +117,6 @@ code {
 
 /* Create Postcard Page CSS Here */
 
-.cardholder {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .postcard {
   width: 300px;
   height: 200px;
@@ -155,10 +139,24 @@ code {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 50px;
 }
 
 .finishedpost {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   padding: 20px;
+  font-family: "Cabin", sans-serif;
+  font-size: 20px;
+}
+
+.cardholder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 50px;
 }
 
 /* Signup Page CSS Here */

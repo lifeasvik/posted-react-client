@@ -13,26 +13,44 @@ export default class Viewpostcard extends Component {
   render() {
     const { postcards = [] } = this.context;
     return (
-      <div className="viewpage">
-        <div>View Postcards</div>
-        <div className="finishedpost"></div>
+      <main className="contentliner">
+        <div className="title">
+          <h1>posted</h1>
+        </div>
         <div>
-          <Link to="/">Home </Link>
-          <Link to="/postcard">Create Another</Link>
-        </div>
-        <div className="cardholder">
-          {postcards.map((postcard) => (
-            <div
-              className="postcard"
-              style={{
-                backgroundImage: `url(${postcard.content})`,
-              }}
-            >
-              <p className="postcardText">{postcard.title}</p>
+          <div className="finishedpost">
+            <div>
+              <Link to="/">Go Back Home </Link>
             </div>
-          ))}
+
+            <div>
+              <Link to="/postcard">Create Another</Link>
+            </div>
+          </div>
+
+          <div className="viewpage">
+            <div>
+              <h3>
+                Thank you for your contribution! View your postcard and see what
+                others have created
+              </h3>
+            </div>
+          </div>
+
+          <div className="cardholder">
+            {postcards.map((postcard) => (
+              <div
+                className="postcard"
+                style={{
+                  backgroundImage: `url(${postcard.content})`,
+                }}
+              >
+                <p className="postcardText">{postcard.title}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </main>
     );
   }
 }
