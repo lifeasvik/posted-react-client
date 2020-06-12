@@ -139,6 +139,15 @@ code {
   margin: 10px;
 }
 
+.howto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  font-family: "Cabin", sans-serif;
+}
+
 /* View Postcard Page CSS Here */
 
 .viewpage {

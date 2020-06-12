@@ -42,32 +42,38 @@ export default class Viewpostcard extends Component {
 
   render() {
     return (
-      <div className="signupbox">
-        <div>
-          <h4>Sign Up for an account</h4>
+      <main className="contentliner">
+        <div className="title">
+          <h1>posted</h1>
         </div>
 
-        {this.state.error}
+        <div className="signupbox">
+          <div>
+            <h1>SIGN UP</h1>
+          </div>
 
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <input type="text" name="user_name" placeholder="Username" />
-          </div>
-          <div>
-            <input type="password" name="password" placeholder="Password" />
-          </div>
-          <div>
-            <input
-              type="password"
-              name="verifypass"
-              placeholder="Retype Password"
-            />
-          </div>
-          <button name="submitlogin" value="Button">
-            Submit
-          </button>
-        </form>
-      </div>
+          {this.state.error}
+
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              <input type="text" name="user_name" placeholder="Username" />
+            </div>
+            <div>
+              <input type="password" name="password" placeholder="Password" />
+            </div>
+            <div>
+              <input
+                type="password"
+                name="verifypass"
+                placeholder="Retype Password"
+              />
+            </div>
+            <button name="submitlogin" value="Button">
+              Submit
+            </button>
+          </form>
+        </div>
+      </main>
     );
   }
 }

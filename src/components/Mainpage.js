@@ -98,7 +98,7 @@ export default class App extends React.Component {
           </div>
           <div className="contentliner">
             <button name="submitlogin" value="Button">
-              <h3>SUBMIT</h3>
+              SUBMIT
             </button>
           </div>
 
@@ -106,15 +106,9 @@ export default class App extends React.Component {
             <p>
               Write some text, choose an image from the web and create your own
               postcard. Posted is your place where you can create a digital
-              postcard to share with your friends
+              postcard to share with your friends. No account?{" "}
+              <Link to="/signup">Sign up</Link>
             </p>
-          </div>
-
-          <div className="contentliner">
-            <h3>No Account?</h3>
-            <h1>
-              <Link to="/signup">SIGN UP</Link>
-            </h1>
           </div>
         </form>
         <div>

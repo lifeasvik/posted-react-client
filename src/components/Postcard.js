@@ -34,8 +34,10 @@ export default class Createpostcard extends React.Component {
 
   render() {
     return TokenService.getAuthToken() ? (
-      <div className="postpage">
-        <h1>Posted</h1>
+      <main className="contentliner">
+        <div className="title">
+          <h1>posted</h1>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div>
             <input
@@ -59,7 +61,13 @@ export default class Createpostcard extends React.Component {
             <input type="submit" />
           </div>
         </form>
-
+        <div className="howto">
+          <p>
+            To begin simply enter the text you want to see on your postcard
+            above. Then enter the url of an image you would like as you
+            background. Hit submit and watch the magic happen!
+          </p>
+        </div>
         {/* Code for Viewing Postcard */}
         <div className="cardholder">
           <div
@@ -72,7 +80,7 @@ export default class Createpostcard extends React.Component {
           </div>
         </div>
         {/* End Code for Viewing Postcard */}
-      </div>
+      </main>
     ) : (
       <Redirect to="/" />
     );
