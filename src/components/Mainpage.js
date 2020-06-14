@@ -111,7 +111,7 @@ export default class App extends React.Component {
             <p>
               Write some text, choose an image from the web and create your own
               postcard. Posted is your place where you can create a digital
-              postcard to share with your friends. No account?{" "}
+              postcard to share with your friends. No account?
               <Link to="/signup">Sign up</Link>
             </p>
           </div>
