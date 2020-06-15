@@ -3,6 +3,8 @@ import TokenService from "../services/token-service";
 import { Link } from "react-router-dom";
 import "../styles.css";
 
+// This component is the navbar that is at the top of the page which hides some links while the user is not logged in
+
 export default function Navbar(props) {
   return (
     <nav className="navbarstyle">
@@ -22,6 +24,8 @@ export default function Navbar(props) {
           </>
         ) : (
           <>
+            {/* Content to display when they are logged in */}
+
             <li>
               <Link to="/">Home</Link>
             </li>

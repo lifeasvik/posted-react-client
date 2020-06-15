@@ -5,12 +5,15 @@ import AppContext from "./Context";
 import AuthApiService from "../services/auth-api-service";
 import TokenService from "../services/token-service";
 
+// This is the main splash page which has the login form included
+
 export default class App extends React.Component {
+  // Using empty state so we can pull from the user inputs
+
   static contextType = AppContext;
   state = {
     login: "",
     password: "",
-    // error: null
   };
 
   static defaultProps = {
@@ -22,6 +25,8 @@ export default class App extends React.Component {
     this.setState({ error: null });
     const { user_name, password } = ev.target;
 
+    //Post method for the login credentials
+
     AuthApiService.postLogin({
       user_name: user_name.value,
       password: password.value,
@@ -29,8 +34,8 @@ export default class App extends React.Component {
       .then((res) => {
         user_name.value = "";
         password.value = "";
-        //TokenService.saveAuthToken(res.authToken);
-        //this.props.onLoginSuccess();
+        TokenService.saveAuthToken(res.authToken);
+        this.props.onLoginSuccess();
         this.props.history.push("/postcard");
       })
       .catch((res) => {
@@ -39,6 +44,8 @@ export default class App extends React.Component {
         });
       });
   };
+
+  // Function for handling the authorization of the user and only allowing them to see the content once logged in pulling data from user input
 
   handleSubmitBasicAuth = (ev) => {
     ev.preventDefault();
@@ -64,6 +71,8 @@ export default class App extends React.Component {
     this.setState({ password: e.target.value });
   };
 
+  //Main content display below
+
   render() {
     const { postcards = [] } = this.context;
     return (
@@ -80,6 +89,9 @@ export default class App extends React.Component {
           We recommend you experience this web app with the following login
           credentials: - Username: Demo1 - Password: Password123!
         </div>
+
+        {/* Form to handle the submit function for user inputs */}
+
         <form onSubmit={this.handleSubmitJwtAuth}>
           <div className="contentliner">USER ID</div>
           <div className="contentliner">
@@ -119,6 +131,8 @@ export default class App extends React.Component {
         <div>
           <h1>Latest Postcards:</h1>
         </div>
+
+        {/* Mapping through previous postcards to display them for users */}
 
         <div>
           {postcards.map((postcard, i) => (

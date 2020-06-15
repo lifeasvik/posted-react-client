@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import "../styles.css";
 import AuthApiService from "../services/auth-api-service";
 
+// This component is the sign up page which allows users to create their user id and password
+
 export default class Viewpostcard extends Component {
+  // Using empty state and replacing with user inputs
+
   state = {
     username: "",
     password: "",
@@ -13,7 +17,8 @@ export default class Viewpostcard extends Component {
     onRegistrationSuccess: () => {},
   };
 
-  //add info here from thingful
+  // Function to handle submit making sure passwords match
+
   handleSubmit = (ev) => {
     ev.preventDefault();
     const { user_name, password, verifypass } = ev.target;

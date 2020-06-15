@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 import "../styles.css";
 import AppContext from "./Context";
 
+// This is the component that allows you to view the postcard you created along with other postcards
+
 export default class Viewpostcard extends Component {
   static contextType = AppContext;
-
-  componentDidMount() {
-    // this.context.getStore();
-  }
 
   render() {
     const { postcards = [] } = this.context;
@@ -36,6 +34,8 @@ export default class Viewpostcard extends Component {
               </h3>
             </div>
           </div>
+
+          {/* Displaying postcards here  */}
 
           <div className="cardholder">
             {postcards.map((postcard) => (

@@ -6,6 +6,8 @@ import TokenService from "../services/token-service";
 import { Redirect } from "react-router-dom";
 import postedapiservice from "../services/postedapiservice";
 
+// This component is the page that allows the user to input text and url for image to display as a postcard
+
 export default class Createpostcard extends React.Component {
   static contextType = AppContext;
   state = {
@@ -13,6 +15,8 @@ export default class Createpostcard extends React.Component {
     image: "",
     finishedpostcard: "",
   };
+
+  // This function handles sending the contents to the db pulling data from user inputs
 
   handleSubmit = (ev) => {
     ev.preventDefault();
@@ -68,7 +72,7 @@ export default class Createpostcard extends React.Component {
             background. Hit submit and watch the magic happen!
           </p>
         </div>
-        {/* Code for Viewing Postcard */}
+        {/* Code for Viewing Postcard live on the page while client is creating a postcard*/}
         <div className="cardholder">
           <div
             className="postcard"
