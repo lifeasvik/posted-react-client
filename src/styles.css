@@ -156,7 +156,16 @@ code {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   padding-top: 50px;
+}
+
+.cardholder p {
+  -webkit-text-stroke-width: 0.8px;
+  -webkit-text-stroke-color: #333;
+  font-size: 1.35em;
+  font-weight: 600;
+  color: darkgrey;
 }
 
 /* Signup Page CSS Here */
@@ -171,4 +180,22 @@ code {
 /* Navbar Styling Here */
 .navbar ul {
   list-style: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  .cardholder {
+    width: 95vw;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .cardholder {
+    width: 70vw;
+  }
+}
+
+@media only screen and (min-width: 2560px) {
+  .cardholder {
+    width: 50vw;
+  }
 }

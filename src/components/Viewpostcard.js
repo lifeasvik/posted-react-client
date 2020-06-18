@@ -37,17 +37,19 @@ export default class Viewpostcard extends Component {
 
           {/* Displaying postcards here  */}
 
-          <div className="cardholder">
-            {postcards.map((postcard) => (
-              <div
-                className="postcard"
-                style={{
-                  backgroundImage: `url(${postcard.content})`,
-                }}
-              >
-                <p className="postcardText">{postcard.title}</p>
-              </div>
-            ))}
+          <div className="organizer">
+            <div className="cardholder">
+              {postcards.map((postcard) => (
+                <div
+                  className="postcard"
+                  style={{
+                    backgroundImage: `url(${postcard.content})`,
+                  }}
+                >
+                  <p className="postcardText">{postcard.title}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </main>

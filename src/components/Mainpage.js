@@ -124,7 +124,7 @@ export default class App extends React.Component {
               Write some text, choose an image from the web and create your own
               postcard. Posted is your place where you can create a digital
               postcard to share with your friends. No account?
-              <Link to="/signup">Sign up</Link>
+              <Link to="/signup"> Sign up</Link>
             </p>
           </div>
         </form>
@@ -134,7 +134,7 @@ export default class App extends React.Component {
 
         {/* Mapping through previous postcards to display them for users */}
 
-        <div>
+        <div className="cardholder">
           {postcards.map((postcard, i) => (
             <div
               key={i}
